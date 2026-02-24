@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Modèle de transformation pour les commandes."
+    columns:
+      - name: order_id
+        description: "L'identifiant unique de la commande."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Lien vers l'identifiant du client."
+      - name: order_date
+        description: "La date à laquelle la commande a été passée."
+      - name: status
+        description: "Le statut actuel de la commande (ex: placed, shipped, return_pending, etc.)."
