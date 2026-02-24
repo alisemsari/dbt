@@ -11,7 +11,13 @@ models:
           - not_null
       - name: customer_id
         description: "Lien vers l'identifiant du client."
+        tests:
+          - not_null
+          # BONUS : Test de relation (Vérifie que le client existe bien dans stg_customers)
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
       - name: order_date
         description: "La date à laquelle la commande a été passée."
-      - name: status
-        description: "Le statut actuel de la commande (ex: placed, shipped, return_pending, etc.)."
+        tests:
+          - not_null
